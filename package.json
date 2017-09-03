@@ -1,0 +1,31 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "First Proj",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "clean": "mkdir dev",
+    "lint": "eslint source && eslint examples",
+    "build-hello": "npm run clean && browserify -s Hello src/**/*.js -t babelify > dev/**/*.js",
+    "build-example": "browserify -s appClient examples/app-client.js -t babelify > build/app-client.js",
+    "build": "npm run build-hello",
+    "check": "npm run lint && npm run build && npm test",
+    "start": "npm run build && node dev/server.js",
+    "validate": "npm run check && npm outdated --depth 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsdhabekar/FunWithReact.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gsdhabekar/FunWithReact/issues"
+  },
+  "homepage": "https://github.com/gsdhabekar/FunWithReact#readme",
+  "dependencies": {
+    "babelify": "^7.3.0",
+    "browserify": "^14.4.0"
+  }
+}
